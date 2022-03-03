@@ -42,7 +42,7 @@ public class Main {
                 System.out.println("\nThe sum of the two polynomials is "+sum.toString());
             }else if(option == 2)
             {
-                System.out.print("\nPlease enter the value at which you want to evaluate the polynomial: "");
+                System.out.print("\nPlease enter the value at which you want to evaluate the polynomial: ");
                 double value = Double.parseDouble(scanner.nextLine());
                 System.out.println();
                 pol.evaluate(value);
