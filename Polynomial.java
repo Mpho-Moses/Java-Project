@@ -57,6 +57,7 @@ public class Polynomial{
     public void scale(double scalar)
       {
         //create a temporary arraylist of coefficients and multiply each coefficient by a scalar
+	//then point the old list to the temp list
         ArrayList<Double> temp = new ArrayList<>();
         for (int j = 0; j <= coefficients_list.size() - 1; j++) {
             temp.add(scalar * coefficients_list.get(j));
@@ -113,8 +114,9 @@ public class Polynomial{
     }
     public Polynomial derivative()
         {
+	 
          Polynomial derivative = new Polynomial();
-        //Multiply each coefficient by the exponent i, excluding the coefficient at position 0 since it will always be a constant
+	 //Multiply each coefficient by the exponent i, excluding the coefficient at position 0 since it will always be a constant
         if(coefficients_list.size()==1){
             derivative.coefficients_list.add(0.0);  //return a derivative of 0 if the coefficient is constant
         }
@@ -122,6 +124,8 @@ public class Polynomial{
         {
             derivative.coefficients_list.add(getCoefficient(i) * (i));
         }
+	if(derivative == null) System.out.println("The derivative does not exist!");
+
         return derivative;
     }
 
