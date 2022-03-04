@@ -133,13 +133,13 @@ public class Polynomial{
     {
         String result = "";
         if(coefficients_list.size()==1)              //if the polynomial has one term, return the term
-            return result+coefficients_list.get(0);
+            return result+coefficients_list.ge);
         if(coefficients_list.get(0)==0)
             result+="";
         else
             result+=coefficients_list.get(0);
         for(int i = 1; i < coefficients_list.size()-1; i++){
-            double term=coefficients_list.get(i);
+            double term=getCoefficient(i);
             if(i==1){                                       //consider the constant term and the term with power 1 separately, to avoid printing their exponents
                 //term = coefficients_list.get(i);
                 if(term < 0){
@@ -167,7 +167,7 @@ public class Polynomial{
                     result+="";
                 }
                 else{
-                    if(coefficients_list.get(i)==0)
+                    if(getCoefficient(i)==0)
                         result+=term+"x^"+i;
                     else
                         result += " + "+term+"x^"+i;
@@ -186,8 +186,8 @@ public class Polynomial{
                 }
             }
         }
-        if(coefficients_list.get(coefficients_list.size()-1)<0) {
-            double term = coefficients_list.get(coefficients_list.size()-1);
+        if(getCoefficient(coefficients_list.size()-1)<0) {
+            double term = getCoefficient(coefficients_list.size()-1);//coefficients_list.get(coefficients_list.size()-1);
             term = Math.abs(term);
             result += " - " + term + "x^" + (coefficients_list.size() - 1);
         }
